@@ -1,0 +1,104 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #F8F5FF;
+  --foreground: #374151;
+  --card: rgba(255, 255, 255, 0.8);
+  --card-foreground: #374151;
+  --primary: #C4B5FD;
+  --primary-foreground: #4B5563;
+  --secondary: #F9A8D4;
+  --secondary-foreground: #4B5563;
+  --muted: #EDE9FE;
+  --muted-foreground: #6B7280;
+  --accent: #93C5FD;
+  --accent-foreground: #374151;
+  --success: #86EFAC;
+  --success-foreground: #166534;
+  --destructive: #FCA5A5;
+  --destructive-foreground: #991B1B;
+  --border: rgba(0, 0, 0, 0.06);
+  --ring: #C4B5FD;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    font-family: var(--font-display);
+    color: var(--color-foreground);
+    min-height: 100%;
+  }
+  body {
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(196, 181, 253, 0.25), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(249, 168, 212, 0.2), transparent 60%),
+      radial-gradient(900px 700px at 50% 120%, rgba(147, 197, 253, 0.15), transparent 60%),
+      linear-gradient(180deg, #F8F5FF, #FFFBF5);
+    background-attachment: fixed;
+  }
+  code, pre, .font-mono { font-family: var(--font-mono); }
+}
+
+@utility glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 20px 60px -20px rgba(196, 181, 253, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+@utility glow-primary {
+  box-shadow: 0 0 0 1px rgba(196, 181, 253, 0.5), 0 10px 40px -10px rgba(196, 181, 253, 0.35);
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pop-in { animation: pop-in 0.25s ease-out; }
+.animate-shake { animation: shake 0.35s ease-in-out; }
+.animate-fade-up { animation: fade-up 0.4s ease-out both; }
