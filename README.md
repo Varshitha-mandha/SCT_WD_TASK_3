@@ -2,10 +2,6 @@
 
 An interactive and responsive quiz application developed as **Task 2** for the **SkillCraft Technology Web Development Internship**.
 
-## 🚀 Live Demo
-
-**Live Website:** https://sct-wd-task-2.vercel.app
-
 ## 📌 Project Overview
 
 CodeQuiz Pro is a coding-themed quiz application that allows users to test their programming knowledge through multiple-choice questions. The application provides instant feedback, score tracking, and a detailed results summary.
